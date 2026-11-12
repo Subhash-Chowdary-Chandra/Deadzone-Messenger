@@ -62,7 +62,7 @@ Modern smartphones are tethered to fragile centralized telecom infrastructure. W
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/SubhashChowdaryChandra/Deadzone-Messenger.git
+git clone https://github.com/Subhash-Chowdary-Chandra/Deadzone-Messenger.git
 cd Deadzone-Messenger
 
 # 2. Install dependencies

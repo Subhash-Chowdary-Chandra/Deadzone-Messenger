@@ -559,7 +559,7 @@ function App() {
               </a>
 
               <a 
-                href="https://github.com/SubhashChowdaryChandra/Deadzone-Messenger" 
+                href="https://github.com/Subhash-Chowdary-Chandra/Deadzone-Messenger" 
                 target="_blank" 
                 rel="noreferrer"
                 style={{
