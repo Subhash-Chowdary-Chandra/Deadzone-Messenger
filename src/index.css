@@ -1,0 +1,63 @@
+:root {
+  --bg-dark: #0f1015;
+  --bg-card: #1c1d25;
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0a5;
+  --accent-neon: #00f0ff;
+  --accent-purple: #b05cff;
+  
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: var(--text-primary);
+  background-color: var(--bg-dark);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+}
+
+.glass-panel {
+  background: rgba(28, 29, 37, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+/* Radar Animation */
+@keyframes radar {
+  0% { transform: scale(0); opacity: 0.8; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+.radar-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-top: -100px;
+  margin-left: -100px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-neon);
+  animation: radar 3s infinite linear;
+}
