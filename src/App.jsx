@@ -4,11 +4,12 @@ import {
   WifiOff, Radio, Shield, Image as ImageIcon, Bookmark, ArrowDownCircle, 
   Activity, Database, Network, Code, Lock, Send, Download, Mail, 
   ExternalLink, CheckCircle, Smartphone, MapPin, Users, Sparkles, ChevronRight,
-  Check, X, HelpCircle, Calendar, GraduationCap, Compass
+  Check, X, HelpCircle, Calendar, GraduationCap, Compass, Cpu, Layers
 } from 'lucide-react';
 import MeshSimulator from './MeshSimulator';
 import DualDeviceSimulator from './DualDeviceSimulator';
 import OfflineSimulator from './OfflineSimulator';
+import synapseLogo from './assets/synapse-logic-logo.jpg';
 
 function App() {
   const containerRef = useRef(null);
@@ -16,6 +17,7 @@ function App() {
   const [submitted, setSubmitted] = useState(false);
   const [activeFaq, setActiveFaq] = useState(null);
 
+  // Email is kept strictly in the mailto link without rendering plaintext on the page
   const founderEmail = "subhash.25bca7607@vitapstudent.ac.in";
 
   const handleSubmit = (e) => {
@@ -49,7 +51,7 @@ function App() {
     },
     {
       q: "How can I install and test the beta application?",
-      a: "You can request the direct APK package by submitting your email in the Early Access form below or emailing the developer directly at subhash.25bca7607@vitapstudent.ac.in."
+      a: "You can request the direct APK package by submitting your email in the Early Access form below or clicking the 'Email Founder' button."
     }
   ];
 
@@ -62,8 +64,8 @@ function App() {
         top: 0,
         left: 0,
         right: 0,
-        height: '70px',
-        background: 'rgba(15, 16, 21, 0.85)',
+        height: '74px',
+        background: 'rgba(15, 16, 21, 0.9)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
         borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
@@ -73,10 +75,10 @@ function App() {
         justifyContent: 'space-between',
         padding: '0 30px'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
           <div style={{ 
-            width: '38px', 
-            height: '38px', 
+            width: '40px', 
+            height: '40px', 
             borderRadius: '10px', 
             background: 'linear-gradient(135deg, rgba(0, 240, 255, 0.2), rgba(176, 92, 255, 0.2))',
             display: 'flex', 
@@ -84,11 +86,16 @@ function App() {
             justifyContent: 'center',
             border: '1px solid rgba(0, 240, 255, 0.4)'
           }}>
-            <Radio size={20} color="var(--accent-neon)" />
+            <Radio size={22} color="var(--accent-neon)" />
           </div>
           <div>
-            <span style={{ fontWeight: '800', letterSpacing: '1px', fontSize: '1.1rem' }}>DEADZONE</span>
-            <span style={{ color: 'var(--accent-neon)', marginLeft: '6px', fontSize: '0.8rem', fontWeight: '600', padding: '2px 8px', borderRadius: '12px', background: 'rgba(0, 240, 255, 0.1)', border: '1px solid rgba(0, 240, 255, 0.3)' }}>BETA</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{ fontWeight: '900', letterSpacing: '1px', fontSize: '1.15rem' }}>DEADZONE</span>
+              <span style={{ color: 'var(--accent-neon)', fontSize: '0.75rem', fontWeight: '700', padding: '1px 7px', borderRadius: '10px', background: 'rgba(0, 240, 255, 0.1)', border: '1px solid rgba(0, 240, 255, 0.3)' }}>BETA</span>
+            </div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', letterSpacing: '0.5px' }}>
+              by <span style={{ color: '#fff', fontWeight: '600' }}>SYNAPSE LOGIC</span>
+            </div>
           </div>
         </div>
 
@@ -97,6 +104,7 @@ function App() {
           <a href="#comparison" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}>Comparison</a>
           <a href="#demo" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}>Live Demo</a>
           <a href="#tech" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}>Tech Stack</a>
+          <a href="#venture" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}>Synapse Logic</a>
           <a href="#faq" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}>FAQ</a>
           <a href="#contact" style={{
             background: 'linear-gradient(135deg, var(--accent-neon), var(--accent-purple))',
@@ -143,7 +151,7 @@ function App() {
               fontWeight: '600',
               marginBottom: '20px'
             }}>
-              <Sparkles size={14} /> DECENTRALIZED OFF-GRID P2P MESSAGING
+              <Sparkles size={14} /> A SYNAPSE LOGIC VENTURE • CONNECTING INTELLIGENCE
             </div>
 
             <h1 style={{ fontSize: '3.6rem', fontWeight: '900', lineHeight: '1.1', marginBottom: '15px' }}>
@@ -367,7 +375,7 @@ function App() {
         </div>
       </section>
 
-      {/* SECTION 4: COMPARISON MATRIX (Why Deadzone vs Alternatives) */}
+      {/* SECTION 4: COMPARISON MATRIX */}
       <section id="comparison" style={{ padding: '80px 20px', maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '50px' }}>
           <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '15px' }}>
@@ -430,7 +438,7 @@ function App() {
         </div>
       </section>
 
-      {/* SECTION 5: INTERACTIVE DEMO (Dual-Device Simulator) */}
+      {/* SECTION 5: INTERACTIVE DEMO */}
       <section id="demo" style={{ padding: '80px 20px', maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <div style={{
@@ -467,7 +475,7 @@ function App() {
         </motion.div>
       </section>
 
-      {/* SECTION 6: UNDER THE HOOD (Tech Stack) */}
+      {/* SECTION 6: TECH STACK */}
       <section id="tech" style={{ padding: '80px 20px', maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '50px' }}>
           <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '15px', color: 'var(--accent-neon)' }}>
@@ -513,7 +521,100 @@ function App() {
         </div>
       </section>
 
-      {/* SECTION 7: FREQUENTLY ASKED QUESTIONS (FAQ) */}
+      {/* SECTION 7: ABOUT THE VENTURE (SYNAPSE LOGIC) */}
+      <section id="venture" style={{ padding: '90px 20px', maxWidth: '1100px', margin: '0 auto' }}>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="glass-panel"
+          style={{
+            padding: '50px 40px',
+            background: 'linear-gradient(135deg, rgba(28, 29, 37, 0.9), rgba(15, 16, 21, 0.95))',
+            border: '1px solid rgba(0, 240, 255, 0.3)',
+            boxShadow: '0 0 50px rgba(0, 240, 255, 0.1)'
+          }}
+        >
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '40px', justifyContent: 'center' }}>
+            
+            {/* LOGO DISPLAY */}
+            <div style={{
+              flex: '0 0 240px',
+              textAlign: 'center',
+              padding: '16px',
+              borderRadius: '20px',
+              background: '#ffffff',
+              boxShadow: '0 0 30px rgba(0, 240, 255, 0.35)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <img 
+                src={synapseLogo} 
+                alt="Synapse Logic - Connecting Intelligence" 
+                style={{ width: '100%', height: 'auto', borderRadius: '12px', display: 'block' }}
+              />
+            </div>
+
+            {/* VENTURE DETAILS */}
+            <div style={{ flex: '1 1 500px', textAlign: 'left' }}>
+              <div style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '4px 12px',
+                borderRadius: '16px',
+                background: 'rgba(0, 240, 255, 0.1)',
+                border: '1px solid rgba(0, 240, 255, 0.3)',
+                color: 'var(--accent-neon)',
+                fontSize: '0.8rem',
+                fontWeight: '700',
+                marginBottom: '15px'
+              }}>
+                <Sparkles size={14} /> ABOUT THE VENTURE
+              </div>
+
+              <h2 style={{ fontSize: '2.5rem', fontWeight: '900', marginBottom: '8px' }}>
+                Synapse Logic
+              </h2>
+              <p style={{ color: 'var(--accent-neon)', fontSize: '1.1rem', fontWeight: '700', letterSpacing: '1px', marginBottom: '20px' }}>
+                CONNECTING INTELLIGENCE
+              </p>
+
+              <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '25px' }}>
+                <strong>Synapse Logic</strong> is a frontier technology venture founded by <strong>Subhash Chowdary Chandra</strong>. 
+                Our mission is to engineer decentralized architectures, edge-intelligent systems, and resilient peer-to-peer protocols that empower users with sovereign, uninterrupted digital communication.
+              </p>
+
+              <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '30px' }}>
+                <strong>Deadzone Messenger</strong> is Synapse Logic's flagship platform, directly tackling the growing failure of centralized telecommunications by transforming everyday mobile phones into cooperative, zero-infrastructure communication networks.
+              </p>
+
+              {/* VENTURE PILLARS */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '15px' }}>
+                <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '15px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                  <div style={{ color: 'var(--accent-neon)', fontWeight: '700', fontSize: '0.95rem', marginBottom: '5px' }}>Decentralized Edge</div>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>Eliminating dependence on fragile centralized cloud servers.</div>
+                </div>
+
+                <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '15px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                  <div style={{ color: 'var(--accent-purple)', fontWeight: '700', fontSize: '0.95rem', marginBottom: '5px' }}>Sovereign Privacy</div>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>Zero data collection, zero telemetry, and total user encryption.</div>
+                </div>
+
+                <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '15px', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+                  <div style={{ color: 'var(--accent-neon)', fontWeight: '700', fontSize: '0.95rem', marginBottom: '5px' }}>Peer Mesh Power</div>
+                  <div style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>Connecting intelligence through self-healing local mesh links.</div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </motion.div>
+      </section>
+
+      {/* SECTION 8: FAQ */}
       <section id="faq" style={{ padding: '80px 20px', maxWidth: '900px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '50px' }}>
           <div style={{
@@ -570,7 +671,7 @@ function App() {
         </div>
       </section>
 
-      {/* SECTION 8: CALL TO ACTION & FOUNDER CONTACT */}
+      {/* SECTION 9: CALL TO ACTION & FOUNDER CONTACT */}
       <section id="contact" style={{ padding: '80px 20px 100px', maxWidth: '1000px', margin: '0 auto' }}>
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
@@ -602,7 +703,7 @@ function App() {
             Ready for Off-Grid Freedom?
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '650px', margin: '0 auto 35px' }}>
-            Join the early beta testing group, request the latest Android APK build, or connect directly for feedback and inquiries.
+            Join the early beta testing group, request the latest Android APK build, or connect directly with the founder.
           </p>
 
           {/* EARLY ACCESS FORM */}
@@ -661,19 +762,20 @@ function App() {
             textAlign: 'left'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-neon)', fontSize: '0.9rem', fontWeight: '600', marginBottom: '8px' }}>
-              <GraduationCap size={18} /> VIT-AP University
+              <GraduationCap size={18} /> Synapse Logic • VIT-AP University
             </div>
             <h3 style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '4px' }}>
               Subhash Chowdary Chandra
             </h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '15px' }}>
-              Lead Android Architect & Decentralized Systems Developer • Student at VIT-AP University
+              Founder & Lead Architect, <strong>Synapse Logic</strong>
             </p>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>
-              Inquiries regarding technical architecture, beta testing APK releases, and off-grid research collaborations are warmly welcomed.
+              Inquiries regarding technical architecture, beta testing APK releases, partnership opportunities, and decentralized system research are warmly welcomed.
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+              {/* Email button with hidden address */}
               <a 
                 href={`mailto:${founderEmail}`}
                 style={{
@@ -682,7 +784,7 @@ function App() {
                   gap: '8px',
                   background: 'rgba(0, 240, 255, 0.12)',
                   color: 'var(--accent-neon)',
-                  padding: '10px 18px',
+                  padding: '10px 20px',
                   borderRadius: '8px',
                   textDecoration: 'none',
                   fontSize: '0.9rem',
@@ -690,7 +792,7 @@ function App() {
                   border: '1px solid rgba(0, 240, 255, 0.3)'
                 }}
               >
-                <Mail size={16} /> {founderEmail}
+                <Mail size={16} /> Email Founder
               </a>
 
               <a 
@@ -742,10 +844,10 @@ function App() {
       {/* FOOTER */}
       <footer style={{ padding: '40px 20px', borderTop: '1px solid rgba(255,255,255,0.06)', textAlign: 'center', background: '#0a0a0d' }}>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
-          &copy; {new Date().getFullYear()} <strong>Deadzone Messenger</strong>. All rights reserved.
+          &copy; {new Date().getFullYear()} <strong>Deadzone Messenger</strong> — A <strong>Synapse Logic</strong> Venture. All rights reserved.
         </p>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginTop: '8px' }}>
-          Conceived, designed, and developed by <span style={{ color: 'var(--accent-neon)', fontWeight: 'bold' }}>Subhash Chowdary Chandra</span> (VIT-AP University)
+          Founded and developed by <span style={{ color: 'var(--accent-neon)', fontWeight: 'bold' }}>Subhash Chowdary Chandra</span> (Founder, Synapse Logic • VIT-AP University)
         </p>
       </footer>
 

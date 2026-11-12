@@ -88,12 +88,16 @@ This repository includes a pre-configured GitHub Actions workflow (`.github/work
 
 ---
 
-## 👤 Author & Creator
+## 👤 Venture & Leadership
+
+### **Synapse Logic** — *Connecting Intelligence*
+A frontier technology venture engineering resilient decentralized systems, edge intelligence, and sovereign peer-to-peer communication platforms.
 
 **Subhash Chowdary Chandra**  
-* Android Architect & Decentralized Systems Developer • Student at **VIT-AP University**
+* Founder & Lead Architect, **Synapse Logic**
+* Student at **VIT-AP University**
 * **LinkedIn:** [Subhash Chowdary Chandra](https://www.linkedin.com/in/subhash-chowdary-chandra)
-* **Email:** [subhash.25bca7607@vitapstudent.ac.in](mailto:subhash.25bca7607@vitapstudent.ac.in)
+* **Contact:** [Click to Email Founder](mailto:subhash.25bca7607@vitapstudent.ac.in)
 
 ---
 
