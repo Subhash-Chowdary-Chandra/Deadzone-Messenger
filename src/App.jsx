@@ -3,7 +3,8 @@ import { motion, useScroll } from 'framer-motion';
 import { 
   WifiOff, Radio, Shield, Image as ImageIcon, Bookmark, ArrowDownCircle, 
   Activity, Database, Network, Code, Lock, Send, Download, Mail, 
-  ExternalLink, CheckCircle, Smartphone, MapPin, Users, Sparkles, ChevronRight 
+  ExternalLink, CheckCircle, Smartphone, MapPin, Users, Sparkles, ChevronRight,
+  Check, X, HelpCircle, Calendar, GraduationCap, Compass
 } from 'lucide-react';
 import MeshSimulator from './MeshSimulator';
 import DualDeviceSimulator from './DualDeviceSimulator';
@@ -13,14 +14,44 @@ function App() {
   const containerRef = useRef(null);
   const [emailInput, setEmailInput] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [activeFaq, setActiveFaq] = useState(null);
+
+  const founderEmail = "subhash.25bca7607@vitapstudent.ac.in";
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (emailInput.trim()) {
       setSubmitted(true);
-      window.location.href = `mailto:subhashchowdarychandra@gmail.com?subject=Deadzone%20Messenger%20Early%20Access&body=Hi%20Subhash,%20I%20would%20like%20to%20request%20early%20access%20to%20Deadzone%20Messenger.%20My%20email:%20${encodeURIComponent(emailInput)}`;
+      window.location.href = `mailto:${founderEmail}?subject=Deadzone%20Messenger%20Early%20Access%20Request&body=Hi%20Subhash,%20I%20would%20like%20to%20request%20early%20access%20to%20Deadzone%20Messenger.%20My%20email:%20${encodeURIComponent(emailInput)}`;
     }
   };
+
+  const faqs = [
+    {
+      q: "Do I need an active SIM card or cellular data plan?",
+      a: "No! Deadzone Messenger operates completely independent of telecom operators, cell towers, and SIM cards. It communicates directly device-to-device using on-board Bluetooth and Wi-Fi Direct hardware."
+    },
+    {
+      q: "What is the transmission range between devices?",
+      a: "A direct point-to-point Wi-Fi Direct link reaches up to 100–150 meters in open sight. With Deadzone's multi-hop mesh routing, intermediate devices automatically forward packets, chaining connections across kilometers through crowds, university campuses, or trails."
+    },
+    {
+      q: "Can intermediate relay phones read or tamper with my messages?",
+      a: "Never. Every packet is encrypted on the sender's device using military-grade AES-256 GCM before transmission. Relay nodes only inspect packet destination headers to route the payload; they possess zero access to message contents or attached media."
+    },
+    {
+      q: "Does running a mesh network drain the phone's battery?",
+      a: "No. The architecture uses Bluetooth Low Energy (BLE) for continuous low-power background peer discovery, and only awakens high-bandwidth Wi-Fi Direct channels momentarily when transferring voice notes or high-resolution images."
+    },
+    {
+      q: "Which Android devices and versions are supported?",
+      a: "Deadzone Messenger is compatible with Android 8.0 (Oreo) and above, which encompasses over 95% of active Android devices globally today."
+    },
+    {
+      q: "How can I install and test the beta application?",
+      a: "You can request the direct APK package by submitting your email in the Early Access form below or emailing the developer directly at subhash.25bca7607@vitapstudent.ac.in."
+    }
+  ];
 
   return (
     <div ref={containerRef} style={{ background: 'var(--bg-dark)', color: 'var(--text-primary)', minHeight: '100vh', scrollBehavior: 'smooth' }}>
@@ -61,10 +92,12 @@ function App() {
           </div>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '25px' }}>
-          <a href="#how-it-works" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }}>How It Works</a>
-          <a href="#demo" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }}>Live Demo</a>
-          <a href="#tech" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.95rem', transition: 'color 0.2s' }}>Tech Stack</a>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+          <a href="#how-it-works" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}>How It Works</a>
+          <a href="#comparison" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}>Comparison</a>
+          <a href="#demo" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}>Live Demo</a>
+          <a href="#tech" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}>Tech Stack</a>
+          <a href="#faq" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}>FAQ</a>
           <a href="#contact" style={{
             background: 'linear-gradient(135deg, var(--accent-neon), var(--accent-purple))',
             color: '#0f1015',
@@ -83,7 +116,7 @@ function App() {
         </div>
       </nav>
 
-      {/* SECTION 1: HERO (Unique Value Proposition Upfront) */}
+      {/* SECTION 1: HERO (UVP Upfront) */}
       <section style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', position: 'relative', overflow: 'hidden', padding: '140px 20px 80px' }}>
         <div className="radar-ring" style={{ animationDelay: '0s' }}></div>
         <div className="radar-ring" style={{ animationDelay: '1s' }}></div>
@@ -172,7 +205,7 @@ function App() {
             </div>
 
             {/* QUICK TRUST BADGES */}
-            <div style={{ display: 'flex', gap: '20px', marginTop: '35px', color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', marginTop: '35px', color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <CheckCircle size={16} color="var(--accent-neon)" /> No SIM Required
               </div>
@@ -238,9 +271,9 @@ function App() {
             style={{ padding: '30px', borderTop: '3px solid var(--accent-purple)' }}
           >
             <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'rgba(176, 92, 255, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px' }}>
-              <Users size={26} color="var(--accent-purple)" />
+              <GraduationCap size={26} color="var(--accent-purple)" />
             </div>
-            <h3 style={{ fontSize: '1.3rem', marginBottom: '12px' }}>Campus & Concrete Deadzones</h3>
+            <h3 style={{ fontSize: '1.3rem', marginBottom: '12px' }}>Universities & Concrete Buildings</h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6' }}>
               Thick concrete, high-rise lecture halls, and basement labs block cell signals. Deadzone meshes phones together through walls effortlessly.
             </p>
@@ -334,7 +367,70 @@ function App() {
         </div>
       </section>
 
-      {/* SECTION 4: INTERACTIVE DEMO (Dual-Device Simulator) */}
+      {/* SECTION 4: COMPARISON MATRIX (Why Deadzone vs Alternatives) */}
+      <section id="comparison" style={{ padding: '80px 20px', maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '15px' }}>
+            Why Deadzone Messenger vs. Traditional Alternatives
+          </h2>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '1.15rem', maxWidth: '750px', margin: '0 auto' }}>
+            How Deadzone compares against standard cellular messengers and specialized satellite communicators.
+          </p>
+        </div>
+
+        <div className="glass-panel" style={{ overflowX: 'auto', padding: '25px' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '600px' }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}>
+                <th style={{ padding: '16px', color: 'var(--text-secondary)', fontWeight: '600' }}>Feature</th>
+                <th style={{ padding: '16px', color: 'var(--accent-neon)', fontWeight: '800' }}>Deadzone Messenger</th>
+                <th style={{ padding: '16px', color: 'var(--text-secondary)', fontWeight: '600' }}>WhatsApp / Signal</th>
+                <th style={{ padding: '16px', color: 'var(--text-secondary)', fontWeight: '600' }}>Satellite (Garmin)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                <td style={{ padding: '16px', fontWeight: '600' }}>Cell / Internet Required</td>
+                <td style={{ padding: '16px', color: 'var(--accent-neon)', fontWeight: '700' }}>❌ None (100% Off-Grid)</td>
+                <td style={{ padding: '16px', color: '#ff6b6b' }}>⚠️ Mandatory</td>
+                <td style={{ padding: '16px', color: '#ffd166' }}>❌ Satellite Sky Line-of-Sight</td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                <td style={{ padding: '16px', fontWeight: '600' }}>Upfront & Monthly Cost</td>
+                <td style={{ padding: '16px', color: 'var(--accent-neon)', fontWeight: '700' }}>🟢 100% Free & Open</td>
+                <td style={{ padding: '16px' }}>🟢 Free (Requires SIM Data)</td>
+                <td style={{ padding: '16px', color: '#ff6b6b' }}>🔴 $350+ Device + $15/mo plan</td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                <td style={{ padding: '16px', fontWeight: '600' }}>Photos & Voice Notes</td>
+                <td style={{ padding: '16px', color: 'var(--accent-neon)', fontWeight: '700' }}>🟢 Full High-Resolution</td>
+                <td style={{ padding: '16px' }}>🟢 Online Only</td>
+                <td style={{ padding: '16px', color: '#ff6b6b' }}>🔴 Text-Only (160 characters)</td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                <td style={{ padding: '16px', fontWeight: '600' }}>Multi-Hop Relay Routing</td>
+                <td style={{ padding: '16px', color: 'var(--accent-neon)', fontWeight: '700' }}>🟢 Self-Healing P2P Mesh</td>
+                <td style={{ padding: '16px', color: '#ff6b6b' }}>❌ Centralized Servers</td>
+                <td style={{ padding: '16px', color: '#ff6b6b' }}>❌ Direct to Satellite</td>
+              </tr>
+              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+                <td style={{ padding: '16px', fontWeight: '600' }}>Hardware Needed</td>
+                <td style={{ padding: '16px', color: 'var(--accent-neon)', fontWeight: '700' }}>📱 Any Android 8.0+ Phone</td>
+                <td style={{ padding: '16px' }}>📱 Any Smartphone</td>
+                <td style={{ padding: '16px', color: '#ff6b6b' }}>📡 Bulky Specialized Device</td>
+              </tr>
+              <tr>
+                <td style={{ padding: '16px', fontWeight: '600' }}>Privacy & Data Collection</td>
+                <td style={{ padding: '16px', color: 'var(--accent-neon)', fontWeight: '700' }}>🔒 Zero Logs, AES-256 GCM</td>
+                <td style={{ padding: '16px', color: '#ffd166' }}>⚠️ Server Metadata Logged</td>
+                <td style={{ padding: '16px', color: '#ffd166' }}>⚠️ Location & Telemetry Logged</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* SECTION 5: INTERACTIVE DEMO (Dual-Device Simulator) */}
       <section id="demo" style={{ padding: '80px 20px', maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <div style={{
@@ -371,7 +467,7 @@ function App() {
         </motion.div>
       </section>
 
-      {/* SECTION 5: UNDER THE HOOD (Tech Stack) */}
+      {/* SECTION 6: UNDER THE HOOD (Tech Stack) */}
       <section id="tech" style={{ padding: '80px 20px', maxWidth: '1200px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: '50px' }}>
           <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '15px', color: 'var(--accent-neon)' }}>
@@ -417,8 +513,65 @@ function App() {
         </div>
       </section>
 
-      {/* SECTION 6: CALL TO ACTION & CONTACT (Rubric Compliance) */}
-      <section id="contact" style={{ padding: '100px 20px', maxWidth: '1000px', margin: '0 auto' }}>
+      {/* SECTION 7: FREQUENTLY ASKED QUESTIONS (FAQ) */}
+      <section id="faq" style={{ padding: '80px 20px', maxWidth: '900px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '5px 14px',
+            borderRadius: '20px',
+            background: 'rgba(0, 240, 255, 0.1)',
+            border: '1px solid rgba(0, 240, 255, 0.3)',
+            color: 'var(--accent-neon)',
+            fontSize: '0.85rem',
+            fontWeight: '600',
+            marginBottom: '15px'
+          }}>
+            <HelpCircle size={15} /> EVERYTHING YOU NEED TO KNOW
+          </div>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '15px' }}>
+            Frequently Asked Questions
+          </h2>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '1.15rem' }}>
+            Answers to common questions about mesh routing, security, range, and APK testing.
+          </p>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+          {faqs.map((faq, index) => (
+            <div 
+              key={index} 
+              className="glass-panel" 
+              style={{ 
+                padding: '24px 28px', 
+                cursor: 'pointer',
+                border: activeFaq === index ? '1px solid var(--accent-neon)' : '1px solid rgba(255, 255, 255, 0.08)',
+                transition: 'border 0.2s, background 0.2s'
+              }}
+              onClick={() => setActiveFaq(activeFaq === index ? null : index)}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <h3 style={{ fontSize: '1.15rem', fontWeight: '700', color: activeFaq === index ? 'var(--accent-neon)' : 'var(--text-primary)' }}>
+                  {faq.q}
+                </h3>
+                <span style={{ fontSize: '1.5rem', color: 'var(--text-secondary)', marginLeft: '15px', userSelect: 'none' }}>
+                  {activeFaq === index ? '−' : '+'}
+                </span>
+              </div>
+              {activeFaq === index && (
+                <p style={{ marginTop: '15px', color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: '1.7', borderTop: '1px solid rgba(255, 255, 255, 0.06)', paddingTop: '15px' }}>
+                  {faq.a}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 8: CALL TO ACTION & FOUNDER CONTACT */}
+      <section id="contact" style={{ padding: '80px 20px 100px', maxWidth: '1000px', margin: '0 auto' }}>
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -449,7 +602,7 @@ function App() {
             Ready for Off-Grid Freedom?
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', maxWidth: '650px', margin: '0 auto 35px' }}>
-            Join the early beta testing group, request the latest Android APK build, or connect with the creator for project collaborations.
+            Join the early beta testing group, request the latest Android APK build, or connect directly for feedback and inquiries.
           </p>
 
           {/* EARLY ACCESS FORM */}
@@ -502,39 +655,42 @@ function App() {
             background: 'rgba(255, 255, 255, 0.03)',
             borderRadius: '16px',
             padding: '30px',
-            maxWidth: '650px',
+            maxWidth: '680px',
             margin: '0 auto',
             border: '1px solid rgba(255, 255, 255, 0.07)',
             textAlign: 'left'
           }}>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '8px', color: 'var(--text-primary)' }}>
-              Project Creator & Developer
-            </h3>
-            <p style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--accent-neon)', marginBottom: '15px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-neon)', fontSize: '0.9rem', fontWeight: '600', marginBottom: '8px' }}>
+              <GraduationCap size={18} /> VIT-AP University
+            </div>
+            <h3 style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '4px' }}>
               Subhash Chowdary Chandra
+            </h3>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', marginBottom: '15px' }}>
+              Lead Android Architect & Decentralized Systems Developer • Student at VIT-AP University
             </p>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px' }}>
-              Android Architect & Decentralized Systems Developer. Open for technical inquiries, research collaborations, and beta feedback.
+              Inquiries regarding technical architecture, beta testing APK releases, and off-grid research collaborations are warmly welcomed.
             </p>
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
               <a 
-                href="mailto:subhashchowdarychandra@gmail.com"
+                href={`mailto:${founderEmail}`}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  background: 'rgba(0, 240, 255, 0.1)',
+                  background: 'rgba(0, 240, 255, 0.12)',
                   color: 'var(--accent-neon)',
                   padding: '10px 18px',
                   borderRadius: '8px',
                   textDecoration: 'none',
                   fontSize: '0.9rem',
                   fontWeight: '600',
-                  border: '1px solid rgba(0, 240, 255, 0.25)'
+                  border: '1px solid rgba(0, 240, 255, 0.3)'
                 }}
               >
-                <Mail size={16} /> Email Founder
+                <Mail size={16} /> {founderEmail}
               </a>
 
               <a 
@@ -589,7 +745,7 @@ function App() {
           &copy; {new Date().getFullYear()} <strong>Deadzone Messenger</strong>. All rights reserved.
         </p>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginTop: '8px' }}>
-          Conceived, designed, and developed by <span style={{ color: 'var(--accent-neon)', fontWeight: 'bold' }}>Subhash Chowdary Chandra</span>
+          Conceived, designed, and developed by <span style={{ color: 'var(--accent-neon)', fontWeight: 'bold' }}>Subhash Chowdary Chandra</span> (VIT-AP University)
         </p>
       </footer>
 

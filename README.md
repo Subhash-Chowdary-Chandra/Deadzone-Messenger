@@ -91,9 +91,9 @@ This repository includes a pre-configured GitHub Actions workflow (`.github/work
 ## 👤 Author & Creator
 
 **Subhash Chowdary Chandra**  
-* Android Architect & Decentralized Systems Developer
+* Android Architect & Decentralized Systems Developer • Student at **VIT-AP University**
 * **LinkedIn:** [Subhash Chowdary Chandra](https://www.linkedin.com/in/subhash-chowdary-chandra)
-* **Email:** [subhashchowdarychandra@gmail.com](mailto:subhashchowdarychandra@gmail.com)
+* **Email:** [subhash.25bca7607@vitapstudent.ac.in](mailto:subhash.25bca7607@vitapstudent.ac.in)
 
 ---
 
