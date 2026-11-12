@@ -20,11 +20,23 @@ function App() {
   // Email is kept strictly in the mailto link without rendering plaintext on the page
   const founderEmail = "subhash.25bca7607@vitapstudent.ac.in";
 
+  const handleEmailFounder = (e) => {
+    e.preventDefault();
+    const mailtoUri = `mailto:${founderEmail}?subject=Inquiry%20regarding%20Deadzone%20Messenger%20-%20Synapse%20Logic`;
+    window.location.href = mailtoUri;
+    setTimeout(() => {
+      window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${founderEmail}&su=Inquiry%20regarding%20Deadzone%20Messenger%20-%20Synapse%20Logic`, '_blank');
+    }, 300);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (emailInput.trim()) {
       setSubmitted(true);
       window.location.href = `mailto:${founderEmail}?subject=Deadzone%20Messenger%20Early%20Access%20Request&body=Hi%20Subhash,%20I%20would%20like%20to%20request%20early%20access%20to%20Deadzone%20Messenger.%20My%20email:%20${encodeURIComponent(emailInput)}`;
+      setTimeout(() => {
+        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${founderEmail}&su=Deadzone%20Messenger%20Early%20Access%20Request&body=Hi%20Subhash,%20I%20would%20like%20to%20request%20early%20access%20to%20Deadzone%20Messenger.%20My%20email:%20${encodeURIComponent(emailInput)}`, '_blank');
+      }, 300);
     }
   };
 
@@ -762,7 +774,7 @@ function App() {
             textAlign: 'left'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-neon)', fontSize: '0.9rem', fontWeight: '600', marginBottom: '8px' }}>
-              <GraduationCap size={18} /> Synapse Logic • VIT-AP University
+              <Sparkles size={18} /> Synapse Logic
             </div>
             <h3 style={{ fontSize: '1.4rem', fontWeight: '800', color: 'var(--text-primary)', marginBottom: '4px' }}>
               Subhash Chowdary Chandra
@@ -775,9 +787,10 @@ function App() {
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-              {/* Email button with hidden address */}
-              <a 
-                href={`mailto:${founderEmail}`}
+              {/* Email button with direct mailto & webmail trigger */}
+              <button 
+                type="button"
+                onClick={handleEmailFounder}
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
@@ -786,14 +799,14 @@ function App() {
                   color: 'var(--accent-neon)',
                   padding: '10px 20px',
                   borderRadius: '8px',
-                  textDecoration: 'none',
                   fontSize: '0.9rem',
                   fontWeight: '600',
-                  border: '1px solid rgba(0, 240, 255, 0.3)'
+                  border: '1px solid rgba(0, 240, 255, 0.3)',
+                  cursor: 'pointer'
                 }}
               >
                 <Mail size={16} /> Email Founder
-              </a>
+              </button>
 
               <a 
                 href="https://www.linkedin.com/in/subhash-chowdary-chandra" 
@@ -847,7 +860,7 @@ function App() {
           &copy; {new Date().getFullYear()} <strong>Deadzone Messenger</strong> — A <strong>Synapse Logic</strong> Venture. All rights reserved.
         </p>
         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginTop: '8px' }}>
-          Founded and developed by <span style={{ color: 'var(--accent-neon)', fontWeight: 'bold' }}>Subhash Chowdary Chandra</span> (Founder, Synapse Logic • VIT-AP University)
+          Founded and developed by <span style={{ color: 'var(--accent-neon)', fontWeight: 'bold' }}>Subhash Chowdary Chandra</span> (Founder, Synapse Logic)
         </p>
       </footer>
 

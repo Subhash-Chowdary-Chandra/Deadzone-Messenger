@@ -95,7 +95,6 @@ A frontier technology venture engineering resilient decentralized systems, edge 
 
 **Subhash Chowdary Chandra**  
 * Founder & Lead Architect, **Synapse Logic**
-* Student at **VIT-AP University**
 * **LinkedIn:** [Subhash Chowdary Chandra](https://www.linkedin.com/in/subhash-chowdary-chandra)
 * **Contact:** [Click to Email Founder](mailto:subhash.25bca7607@vitapstudent.ac.in)
 
