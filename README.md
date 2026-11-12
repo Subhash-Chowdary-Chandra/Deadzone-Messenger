@@ -58,31 +58,6 @@ Modern smartphones are tethered to fragile centralized telecom infrastructure. W
 
 ---
 
-## 📁 Repository Structure
-
-```
-Deadzone-Messenger/
-├── android/                    # Native Android Mobile Application
-│   ├── app/                    # Compose UI, Nearby Connections, Room DB, Crypto
-│   ├── build.gradle.kts        # Root Gradle build script
-│   └── settings.gradle.kts     # Project settings
-├── src/                        # Interactive Landing Page & Simulator (React)
-├── public/                     # Static assets & venture branding
-├── .github/workflows/          # CI/CD: Automated deployment to GitHub Pages
-└── vite.config.js              # Vite bundling configuration
-```
-
----
-
-## 📱 Building the Android App
-
-1. Open **Android Studio** (Hedgehog or newer recommended).
-2. Select **Open** and choose the `android/` directory inside this repository.
-3. Allow Gradle to sync dependencies.
-4. Connect an Android device (Android 8.0+ with BLE and Wi-Fi Direct support) and click **Run**.
-
----
-
 ## 💻 Running the Landing Page Locally
 
 ```bash
